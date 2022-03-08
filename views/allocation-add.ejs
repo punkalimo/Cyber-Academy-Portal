@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body>
+    <!-- sidebar -->
+    <%-include('admin-nav')%>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="ui raised very padded text container segment ">
+                <br>
+                <h2 class="ui header">ALLOCATE COURSEWORK TO STUDENT</h2>
+                <form class="ui form" method="post" enctype="multipart/form-data">
+                    <div class="field">
+                        <% if(message.length > 0){%>
+                            <div class="ui negative message">
+                                <i class="close icon"></i>
+                                <div class="header">
+                                    <%=message %>
+                                </div>
+                            </div>
+                            <%}%>
+
+                    </div>
+                    <div class="field">
+                        <label>Course</label>
+                        <select class="ui dropdown" name="course" id="course">
+                            <% course.forEach(function(lecturer){%>
+                            <option value="<%=lecturer.id%>" name="course"><%=lecturer.name%> <%=lecturer.last_name%></option>
+                            <%});%>
+                          </select>
+                    </div>
+                    <div class="field">
+                        <label>Student</label>
+                        <select class="ui dropdown" name="student" id="student">
+                            <% student.forEach(function(lecturer){%>
+                            <option value="<%=lecturer.id%>" name="student"><%=lecturer.first_name%> <%=lecturer.last_name%></option>
+                            <%});%>
+                          </select>
+                    </div>
+                    <div class="field">
+                        <label>Choose Course Work</label>
+                        <input type="file" name="coursework" />
+                    </div>
+
+
+                    <div class="ui form">
+
+                        <br>
+
+                        <button class="ui button teal" type="submit">Allocate Course</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+
+            <div class="ui center aligned container">
+                <p>Cyber Academy 2022</p>
+            </div>
+        </div>
+
+</body>
+
+</html>

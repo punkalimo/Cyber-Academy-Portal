@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body style="background-color: whitesmoke;">
+    <% if (login == 'student') { %>
+        <%-include('portal-nav')%>
+            <% } else if (login == 'admin') { %>
+                <%-include('admin-nav')%>
+                    <% } else if (login == 'lecturer') { %>
+                        <%-include('lecturer-nav')%>
+                            <% } else { %>
+                                <%-include('navbar')%>
+                                    <% } %>
+
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <div class="ui main text container">
+                                            <img src="/images/landing.jpg" alt="landing" style="margin-left: auto; margin-left: auto; width: 100%; height: 50%;" />
+                                            <h1 class="ui header">Complete a Computer Systems & Networking BSc(Hons) Degree from the University of Greenwich</h1>
+                                            <p>This program is designed for individuals wishing to pursue careers as networking professionals. Students work with the latest technology to develop a sound theoretical understanding and in-depth practical experience
+                                                of advanced networking including cutting-edge development of modern distributed computer systems using the latest software and development technologies. At the end of the program, graduates will be competent
+                                                in the skills and disciplines needed to succeed in the world of technology and industry. Graduates will also be in a good position, through the insight and understanding gained, to contribute to research
+                                                and shape the solutions to tomorrow’s challenges</p>
+                                            <img class="wireframe" src="/images/image1.jpg" style="margin-left: auto; margin-right: auto; width: 100%;">
+                                            <h1 class="ui header">LEARN NCC L4 DC and L5 DC at Cyber Academy</h1>
+                                            <p>Cyber Academy offers a two-year professional framework from Diploma level 4 up to the Advanced Diploma level 5 award in Computing in conjunction with NCC Education, UK. The Qualification Credit Foundation (QCF)
+                                                in England has fully recognized these qualifications (levels 4 and 5) and Cyber Academy offers the international program locally. NCC Education is a UK based institution, which provides internationally recognized
+                                                IT qualifications with effective and practical business-oriented skills. The qualification is aimed at school leavers who wish to acquire a degree from a prestigious UK university. It is also an ideal qualification
+                                                for IT professionals looking to update their skills.</p>
+                                            <img class="wireframe" src="/images/image2.jpeg" style="margin-left: auto; margin-right: auto; width: 100%;">
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+                                            <div class="ui center aligned container">
+                                                <p>Cyber Academy 2022</p>
+                                            </div>
+                                        </div>
+</body>
+
+</html>

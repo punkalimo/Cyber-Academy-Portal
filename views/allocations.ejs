@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body>
+    <!-- sidebar -->
+    <%-include('admin-nav')%>
+        <br>
+        <br>
+        <br></br>
+        <form method="post">
+            <div class="field">
+                <h3>Select Student</h3>
+                <select class="ui dropdown" name="student" id="student">
+                    <% record.forEach(function(student){%>
+                    <option value="<%=student.id%>" name="student"><%=student.first_name%> <%=student.last_name%></option>
+                    <%});%>
+                  </select>
+                <button class="ui button teal" type="submit"><i class="search plus icon"></i>Show Allocations</button>
+            </div>
+        </form>
+        <table class="ui compact celled definition table">
+            <thead class="full-width">
+                <div class="field ">
+                    <% if(message.length > 0){%>
+                        <div class="ui center aligned negative message">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                <%=message %>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+                <tr>
+
+                    <th>Allocation Name</th>
+                    <th>Lecturer Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>coursework</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% if(result.length > 0){%>
+                    <% result.forEach(function(allocation){%>
+                        <tr>
+                            <td><i class="book icon"></i>
+                                <%=allocation.name %>
+                            </td>
+                            <td><i class="user icon"></i>
+                                <%=allocation.first_name %>
+                                    <%=allocation.last_name %>
+                            </td>
+                            <td><i class="address book icon"></i>
+                                <%=allocation.email %>
+                            </td>
+                            <td>
+                                <i class="phone icon"></i>+260
+                                <%=allocation.phone_number %>
+                            </td>
+                            <td><i class="download icon"></i>
+                                <a href="/uploads/<%=allocation.coursework %>">
+                                    <%=allocation.coursework %>
+                                </a>
+                            </td>
+                            <td>
+                                <div class="ui right floated">
+                                    <a href='/management/admin/allocations/delete?id=<%=allocation.id%>' class="ui small red button"><i class="trash icon"></i>Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <%});%>
+                            <%}%>
+            </tbody>
+            <tfoot class="full-width">
+                <tr>
+                    <th colspan="6">
+                        <div class="ui center floated ">
+                            <a href="/management/admin/allocations/add" class="ui small primary button"><i class="plus square icon"></i>Add Allocation</a>
+                        </div>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+
+            <div class="ui center aligned container">
+                <p>Cyber Academy 2022</p>
+            </div>
+        </div>
+</body>
+
+</html>

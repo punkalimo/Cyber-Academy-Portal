@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body>
+    <!-- sidebar -->
+    <%-include('lecturer-nav')%>
+        <br>
+        <br>
+        <br><br>
+        <table class="ui compact celled definition table">
+            <h3>Your Allocated Coursework's</h3>
+            <thead class="full-width">
+
+                <tr>
+
+                    <th>Allocation Name</th>
+                    <th>Coursework</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% if(record.length > 0){%>
+                    <% record.forEach(function(allocation){%>
+                        <tr>
+                            <td>
+                                <%=allocation.name %>
+                            </td>
+                            <td>
+                                <a href="/uploads/<%=allocation.coursework %>">
+                                    <%=allocation.coursework %><i class="download icon"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <%});%>
+                            <%}%>
+            </tbody>
+
+        </table>
+        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+
+            <div class="ui center aligned container">
+                <p>Cyber Academy 2022</p>
+            </div>
+        </div>
+</body>
+
+</html>

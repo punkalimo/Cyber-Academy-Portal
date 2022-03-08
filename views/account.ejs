@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body>
+    <!-- sidebar -->
+    <%-include('portal-nav')%>
+        <br>
+        <br>
+        <br><br>
+        <% record.forEach(function(student){%>
+            <div class="ui cards column centered grid">
+                <div class="green ui card" style="width:30%; height:20%;">
+                    <div class="image">
+                        <img src="/images/user.png">
+                    </div>
+                    <div class="content">
+                        <div class="header">
+
+                        </div>
+                        <div class="meta">
+                            <h3>ID:
+                                <%=student.id%>
+
+
+                            </h3>
+                        </div>
+                        <div class="meta">
+                            <h3>Email:
+                                <%=student.email%>
+
+
+                            </h3>
+                        </div>
+                        <div class="meta">
+                            <h3>Name:
+                                <%=student.first_name%>
+                                    <%=student.last_name%>
+
+                            </h3>
+
+                        </div>
+                        <div class="meta">
+
+                            <h3>Allocation status:
+                                <%=student.allocation_status%>
+                            </h3>
+
+
+                        </div>
+                        <div class="meta">
+
+                            <h3>Program ID:
+                                <%=student.programID%>
+                            </h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%});%>
+                <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+
+                    <div class="ui center aligned container">
+                        <p>Cyber Academy 2022</p>
+                    </div>
+                </div>
+</body>
+
+</html>

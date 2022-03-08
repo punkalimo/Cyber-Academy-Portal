@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body>
+    <!-- sidebar -->
+    <%-include('admin-nav')%>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="ui raised very padded text container segment ">
+                <br>
+                <h2 class="ui header">ADD A COURSE</h2>
+                <form class="ui form" method="post" action="">
+                    <div class="field">
+                        <% if(message.length > 0){%>
+                            <div class="ui negative message">
+                                <i class="close icon"></i>
+                                <div class="header">
+                                    <%=message %>
+                                </div>
+                            </div>
+                            <%}%>
+
+                    </div>
+                    <div class="field">
+                        <label>Course Name</label>
+                        <input type="text" name="name" placeholder="Course Name">
+                    </div>
+                    <div class="field">
+                        <label>Lecturer</label>
+                        <select class="ui dropdown" name="lecturer" id="lecturer">
+                            <% record.forEach(function(lecturer){%>
+                            <option value="<%=lecturer.id%>" name="lecturer"><%=lecturer.first_name%> <%=lecturer.last_name%></option>
+                            <%});%>
+                          </select>
+                    </div>
+
+                    <div class="ui form">
+
+                        <br>
+
+                        <button class="ui button teal" type="submit">Add Course</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+
+            <div class="ui center aligned container">
+                <p>Cyber Academy 2022</p>
+            </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%- include('sematic-ui') %>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <%- include('navbar'); %>
+        <br>
+        <br><br>
+        <div class="container">
+            <div class="ui raised very padded text container segment">
+                <h2 class="ui header">LOGIN</h2>
+                <form class="ui form" method="post" action="">
+                    <div class="field">
+                        <% if(message.length > 0){%>
+                            <div class="ui negative message">
+                                <i class="close icon"></i>
+                                <div class="header">
+                                    <%=message %>
+                                </div>
+                            </div>
+                            <%}%>
+
+                    </div>
+                    <div class="field">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="example@email.com">
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="password">
+                    </div>
+                    <br>
+                    <button class="ui button blue" type="submit">login</button>
+                </form>
+
+            </div>
+        </div>
+        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;" style="bottom: 0%; position: fixed; width: 100%;">
+
+            <div class="ui center aligned container">
+                <p>Cyber Academy 2022</p>
+            </div>
+        </div>
+</body>
+
+</html>

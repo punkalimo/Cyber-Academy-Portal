@@ -1,0 +1,66 @@
+<div class="ui top fixed inverted black icon menu main">
+    <a class="active item" href="/">
+        <h2 class="ui header red column">Cyber Student Portal</h2>
+    </a>
+    <a class="item" href="/">
+        Home
+      </a>
+    <a class="item" href="/login">Login</a>
+    <a class="item" href="signup">Gallary</a>
+    <a class="item" href="signup">Gallary</a>
+
+    <a class="item" href="/notice">
+        Notice Board
+      </a>
+    <a class="item" href="#" id="test">Contact us</a>
+    <a class="item" href="/about">
+        About
+      </a>
+    <div class="right menu">
+
+    </div>
+</div>
+<div class="ui modal test">
+
+    <div class="container">
+        <div class="ui padded segment text">
+            <h2 class="ui header">Contact Us</h2>
+            <form class="ui form" method="post" action="/contact">
+                <div class="field">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="example@email.com">
+                </div>
+                <div class="field">
+                    <label>Fullname</label>
+                    <input type="text" name="fullname" placeholder="John Doe">
+                </div>
+                <div class="field">
+                    <label>Subject</label>
+                    <input type="text" name="subject" placeholder="School fees">
+                </div>
+                <div class="field">
+                    <label>Message</label>
+                    <textarea rows="2" name="message"></textarea>
+                </div>
+                <br>
+                <button class="ui button blue" type="submit">Reach to us</button>
+            </form>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            Cancel
+        </div>
+
+    </div>
+</div>
+<script>
+    $(function() {
+        $("#test").click(function() {
+            $(".test").modal('show');
+        });
+        $(".test").modal({
+            closable: true
+        });
+    });
+</script>

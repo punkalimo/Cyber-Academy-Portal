@@ -1,0 +1,35 @@
+<div class="ui top fixed inverted black icon menu main">
+    <a class="active item" href="/admin">
+        <h2 class="ui header green column">Cyber Student Portal</h2>
+    </a>
+    <a class="item" href="/">
+        Home
+      </a>
+    <% var login;%>
+        <% if(login == 'admin'){ %>
+            <a class="item" href="profile">
+                <%= email %>
+            </a>
+            <a class="item" href="/logout">Logout</a>
+            <a class="item" href="/management/admin/messages">Messages</a>
+            <% } else{ %>
+                <a class="item" href="login">login</a>
+                <a class="item" href="signup">Gallary</a>
+                <% } %>
+                    <a class="item" href="/management/admin/notices">
+        Notices
+      </a>
+                    <a class="item" href="/management/admin/students">Students</a>
+                    <a class="item" href="/management/admin/lecturers">Lecturers</a>
+                    <a class="item" href="/management/admin/programs">Programs</a>
+                    <a class="item" href="/management/admin/allocations">Allocation</a>
+                    <div class="right menu">
+                        <div class="item">
+                            <div class="ui icon input">
+                                <input type="text" placeholder="Search Project">
+                                <i class="search link icon"></i>
+                            </div>
+                        </div>
+                    </div>
+</div>
+<br>

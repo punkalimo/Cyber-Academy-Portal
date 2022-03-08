@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body style="background-color: whitesmoke;">
+    <% if (login == 'student') { %>
+        <%-include('portal-nav')%>
+            <% } else if (login == 'admin') { %>
+                <%-include('admin-nav')%>
+                    <% } else if (login == 'lecturer') { %>
+                        <%-include('lecturer-nav')%>
+                            <% } else { %>
+                                <%-include('navbar')%>
+                                    <% } %>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <div class="container" style="padding-left: 10%;">
+                                            <div class="field ">
+                                                <% if(message.length > 0){%>
+                                                    <div class="ui center aligned negative message">
+                                                        <i class="close icon"></i>
+                                                        <div class="header">
+                                                            <%=message %>
+                                                        </div>
+                                                    </div>
+                                                    <%}%>
+                                            </div>
+                                            <br>
+                                            <% if(login == 'admin'){ %>
+                                                <button class="ui small primary button" id="notice"><i class="plus icon"></i>Add Notice</button>
+                                                <% } %>
+                                                    <div class="ui modal notice">
+
+                                                        <div class="container">
+                                                            <div class="ui padded segment text">
+                                                                <h2 class="ui header">Notice</h2>
+                                                                <form class="ui form" method="post" action="/management/admin/notices">
+
+                                                                    <div class="field">
+                                                                        <label>Subject</label>
+                                                                        <input type="text" name="subject" placeholder="School Open Day">
+                                                                    </div>
+                                                                    <div class="field">
+                                                                        <label>Message</label>
+                                                                        <textarea rows="2" name="message"></textarea>
+                                                                    </div>
+                                                                    <br>
+                                                                    <button class="ui button blue" type="submit">Post Notice</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <div class="ui black deny button">
+                                                                Cancel
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <br>
+                                                    <div class="ui link cards">
+                                                        <% record.forEach(function(notice){%>
+                                                            <div class="card">
+                                                                <div class="content">
+                                                                    <div class="header">
+                                                                        <%=notice.subject%>
+                                                                    </div>
+                                                                    <div class="description">
+                                                                        <%=notice.message%>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="extra content">
+                                                                    <span class="right floated">
+                                                        <%=notice.date%>
+                                    </span>
+                                                                    <% if(login == 'admin'){ %>
+                                                                        <span>
+                                                    <a href='/management/admin/notices/delete?id=<%=notice.id%>' class="ui small red button"><i class="trash icon"></i>Delete</a>
+                                    </span>
+                                                                        <% } %>
+                                                                </div>
+                                                            </div>
+                                                            <%});%>
+
+                                                    </div>
+                                        </div>
+                                        <script>
+                                            $(function() {
+                                                $("#notice").click(function() {
+                                                    $(".notice").modal('show');
+                                                });
+                                                $(".notice").modal({
+                                                    closable: true
+                                                });
+                                            });
+                                        </script>
+                                        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+
+                                            <div class="ui center aligned container">
+                                                <p>Cyber Academy 2022</p>
+                                            </div>
+                                        </div>
+</body>
+
+</html>

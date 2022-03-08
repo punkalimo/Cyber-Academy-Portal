@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body style="background-color: whitesmoke;">
+    <% if (login == 'student') { %>
+        <%-include('portal-nav')%>
+            <% } else if (login == 'admin') { %>
+                <%-include('admin-nav')%>
+                    <% } else if (login == 'lecturer') { %>
+                        <%-include('lecturer-nav')%>
+                            <% } else { %>
+                                <%-include('navbar')%>
+                                    <% } %>
+
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <div class="ui main text container">
+                                            <h2>About Us</h2>
+                                            <p><strong>What is Cyber Academy?<br></strong><br>Cyber Academy was incorporated in July 2000 as an Information Technology Training Institution. The Institution fulfills a valuable role in maintaining standards
+                                                for quality education. In addition to professional Associations, Cyber Academy in partnership with NCC Education and the University of Greenwich gives an opportunity to its students to study British qualifications
+                                                that are internationally recognized.</p>
+                                            <img class="wireframe" src="/images/about1.jpeg" style="margin-left: auto; margin-right: auto; width: 100%;">
+                                            <figcaption>David Bradford awarding me the gold medal of quality research in Brussels Belgium in June 2014. The picture was taken in Brussels at the European union headquarters when receiving the European Society for Quality
+                                                Research ESQR award.</figcaption>
+                                            <br>
+                                            <img class="wireframe" src="/images/about2.jpeg" style="margin-left: auto; margin-right: auto; width: 100%;">
+                                            <p>As a training Institution, Cyber Academy has complied with All the education policy regulators&#8217; requirements. Cyber Academy is a proud winner of the December 2007 and&nbsp; June 2008 IMIS Higher Diploma
+                                                Gold Medals in Project Management.<br>We are a registered Training college with TEVETA and certified Training center for NCC levels 4 and 5, a final year degree with the University of Greenwich in Computer
+                                                Systems and Networking and other Computer courses.</p>
+                                            <h3>We are the professional Institute for your Best Information Technology.<br></h3>
+                                        </div>
+
+                                        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+
+                                            <div class="ui center aligned container">
+
+                                                <p>Cyber Academy 2022</p>
+                                            </div>
+                                        </div>
+</body>
+
+</html>

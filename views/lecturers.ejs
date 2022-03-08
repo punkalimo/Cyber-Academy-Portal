@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body>
+    <!-- sidebar -->
+    <%-include('admin-nav')%>
+        <br>
+        <br>
+        <br></br>
+        <table class="ui compact celled definition table">
+            <thead class="full-width">
+                <div class="field ">
+                    <% if(message.length > 0){%>
+                        <div class="ui center aligned negative message">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                <%=message %>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+                <tr>
+
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% record.forEach(function(student){%>
+                    <tr>
+
+                        <td><i class="user icon"></i>
+                            <%=student.first_name%>
+                        </td>
+                        <td>
+                            <%=student.last_name%>
+                        </td>
+                        <td><i class="address book icon"></i>
+                            <%=student.email%>
+                        </td>
+                        <td><i class="phone icon"></i> +260
+                            <%=student.phone_number%>
+                        </td>
+                        <td><i class="key icon"></i>
+                            <%=student.password%>
+                        </td>
+                        <td>
+                            <div class="ui right floated">
+                                <a href='/management/admin/lecturers/delete?id=<%=student.id%>' class="ui small red button"><i class="trash icon"></i>Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <%});%>
+            </tbody>
+            <tfoot class="full-width">
+                <tr>
+                    <th colspan="6">
+                        <div class="ui center floated ">
+                            <a href="/management/admin/lecturers/add" class="ui small primary button"><i class="plus square icon"></i>Add Lecturer</a>
+                        </div>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+
+            <div class="ui center aligned container">
+                <p>Cyber Academy 2022</p>
+            </div>
+        </div>
+</body>
+
+</html>

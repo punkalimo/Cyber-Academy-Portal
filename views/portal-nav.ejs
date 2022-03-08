@@ -1,0 +1,96 @@
+<div class="ui top fixed inverted blue icon menu main">
+    <a class="active item" href="/portal">
+        <h2 class="ui header white column">Cyber Student Portal</h2>
+    </a>
+    <a class="item" href="/portal">
+        Home
+      </a>
+    <% var login;%>
+        <% if(login == 'student'){ %>
+            <a class="item" href="/portal/profile">
+                <%= email %>
+            </a>
+            <% } else{ %>
+                <a class="item" href="login">login</a>
+                <% } %>
+                    <a class="item" href="/portal/notices">
+        Notices
+      </a>
+
+                    <a class="item" href="/portal/submissions"> <i class="tasks icon"></i> Submissions</a>
+                    <a class="item" href="/portal/allocations">Allocation</a>
+                    <a class="item" href="#" id="test">Contact us</a>
+                    <a class="item" href="/portal/about">About</a>
+                    <% if(login == 'student'){ %>
+                        <div class="right menu">
+                            <div class="item">
+                                <a class="item" href="/logout">Logout</a>
+                            </div>
+                        </div>
+                        <% }%>
+
+</div>
+<br>
+<div class="ui modal">
+    <div class="header">Header</div>
+    <div class="content">
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</div>
+<div class="ui modal test">
+
+    <div class="container">
+        <div class="ui padded segment text">
+            <h2 class="ui header">Contact Us</h2>
+            <form class="ui form" method="post" action="/contact">
+                <div class="field">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="example@email.com">
+                </div>
+                <div class="field">
+                    <label>Fullname</label>
+                    <input type="text" name="fullname" placeholder="John Doe">
+                </div>
+                <div class="field">
+                    <label>Subject</label>
+                    <input type="text" name="subject" placeholder="School fees">
+                </div>
+                <div class="field">
+                    <label>Message</label>
+                    <textarea rows="2" name="message"></textarea>
+                </div>
+                <br>
+                <button class="ui button blue" type="submit">Reach to us</button>
+            </form>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            Cancel
+        </div>
+
+    </div>
+</div>
+<% var message ='';
+if(message.length > 0){%>
+    <div class="ui floating message">
+        <i class="close icon"></i>
+        <div class="header">
+            <script type="text/javascript">
+                alert("Message Sent Succesfully")
+            </script>
+        </div>
+    </div>
+    <%}%>
+        <script>
+            $(function() {
+                $("#test").click(function() {
+                    $(".test").modal('show');
+                });
+                $(".test").modal({
+                    closable: true
+                });
+            });
+        </script>

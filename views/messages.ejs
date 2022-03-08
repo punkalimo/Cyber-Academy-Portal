@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%-include('sematic-ui')%>
+</head>
+
+<body>
+    <!-- sidebar -->
+    <%-include('admin-nav')%>
+        <br>
+        <br>
+        <br></br>
+        <div class="field ">
+            <% if(message.length > 0){%>
+                <div class="ui center aligned negative message">
+                    <i class="close icon"></i>
+                    <div class="header">
+                        <%=message %>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+        <div class="ui grid">
+            <% record.forEach(function(message){%>
+                <div class="four wide column">
+                    <div class="ui center floating aligned message">
+                        <div class="content">
+                            <div class="header">
+                                <%=message.fullname%>
+                            </div>
+                            <p>
+                                <%=message.email%>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="nine wide column">
+                    <div class="ui center floating aligned message">
+                        <div class="content">
+                            <div class="header">
+                                <%=message.subject%>
+                            </div>
+                            <p>
+                                <%=message.message%>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="three wide column">
+                    <br>
+                    <a href='/management/admin/messages/delete?id=<%=message.id%>' class="ui small red button"><i class="trash icon"></i>Delete</a>
+                </div>
+                <%});%>
+        </div>
+        <div class="ui inverted vertical footer segment" style="bottom: 0%; position: fixed; width: 100%;">
+
+            <div class="ui center aligned container">
+                <p>Cyber Academy 2022</p>
+            </div>
+        </div>
+</body>
+
+</html>
